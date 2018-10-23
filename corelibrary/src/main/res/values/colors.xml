@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="core_library_default_bg">#F3F4F5</color>
+    <color name="core_library_default_white">#ffffff</color>
+    <color name="core_library_default_text_color">#000000</color>
+    <color name="core_library_default_text_color_grey">#999999</color>
+    <color name="core_library_default_line_color">#e5e5e5</color>
+
+</resources>

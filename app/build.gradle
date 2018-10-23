@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.objectbox'
+def versions = rootProject.ext.versions
+def releaseConfig = rootProject.ext.releaseConfig
+
+android {
+    buildToolsVersion '28.0.2'
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.niuzj.minibrain"
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    android.applicationVariants.all { variant ->
+        if (variant.buildType.signingConfig.getName() == android.signingConfigs.release.getName()) {
+            variant.outputs.all {
+                outputFileName = "MiniBrain.apk"
+            }
+        }
+    }
+    signingConfigs {
+        release {
+            keyAlias releaseConfig.release_key_alias
+            keyPassword releaseConfig.release_key_password
+            storeFile file(releaseConfig.release_store_file)
+            storePassword releaseConfig.release_store_password
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
+//    dataBinding {
+//        enabled = true
+//    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':corelibrary')
+    implementation rootProject.ext.dependencies.multidex
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+}

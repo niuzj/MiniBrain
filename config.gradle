@@ -1,0 +1,34 @@
+ext {
+
+    releaseConfig = [
+            release_key_alias     : "minibrain",
+            release_key_password  : "minibrain",
+            release_store_password: "minibrain",
+            release_store_file    : "./keystore/release.jks"
+    ]
+
+    versions = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 15,
+            targetSdkVersion : 28,
+            buildToolsVersion: '28.0.2'
+    ]
+
+    dependencies = [
+
+            butterknife         : "com.jakewharton:butterknife:8.4.0",
+            butterknife_compiler: "com.jakewharton:butterknife-compiler:8.4.0",
+
+            multidex            : "com.android.support:multidex:1.0.2",
+
+            gson                : "com.google.code.gson:gson:2.8.5",
+
+            rxjava              : "io.reactivex.rxjava2:rxjava:2.2.2",
+
+            recyclerview        : 'com.android.support:recyclerview-v7:28.0.0',
+
+            cardview            : 'com.android.support:cardview-v7:28.0.0'
+
+    ]
+}
+

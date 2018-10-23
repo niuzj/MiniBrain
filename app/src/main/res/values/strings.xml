@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">MiniBrain</string>
+
+    <string name="type">类型</string>
+    <string name="type_hint">请输入类型</string>
+    <string name="title">标题</string>
+    <string name="title_hint">请输入标题</string>
+    <string name="content">内容</string>
+    <string name="content_hint">请输入内容（最多500字）</string>
+    <string name="url">链接</string>
+    <string name="url_hint">请输入链接</string>
+    <string name="content_url_cannot_null">请输入内容或链接</string>
+
+    <string name="necessary">（必须）</string>
+    <string name="optional">（可选）</string>
+
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="delete_success">删除成功</string>
+    <string name="add">添加</string>
+    <string name="add_success">添加成功</string>
+    <string name="edit">编辑</string>
+    <string name="edit_success">编辑成功</string>
+    <string name="setting">设置</string>
+
+    <string name="default_open_type">默认打开链接方式：</string>
+    <string name="default_open_inner">应用内打开</string>
+    <string name="default_open_browser">系统默认浏览器</string>
+    <string name="tip_before_open">每次打开前提示选择</string>
+
+    <string name="performance_better_tip">跳转系统浏览器，获取更好体验？\n可在设置页面设置默认打开方式</string>
+    <string name="type_change_tip">该记录的类型已变为%1$s，将从%2$s中删除</string>
+    <string name="delete_type_tip">确定要删除%1$s类目下的%2$d条记录吗？</string>
+
+    <string name="history_of_type">历史</string>
+
+</resources>
