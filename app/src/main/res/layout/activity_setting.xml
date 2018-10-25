@@ -10,7 +10,7 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:core_library_title="@string/setting" />
+        app:core_library_title="@string/about_setting" />
 
     <TextView
         style="@style/text_tip"
@@ -42,5 +42,23 @@
             android:text="@string/tip_before_open" />
 
     </RadioGroup>
+
+    <!--版本号-->
+    <TextView
+        android:id="@+id/tv_version"
+        style="@style/text_tip" />
+
+    <!--所需权限-->
+    <TextView
+        style="@style/text_tip"
+        android:text="@string/permission_needed" />
+
+    <LinearLayout
+        android:id="@+id/ll_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/core_library_default_space" />
+
 
 </LinearLayout>

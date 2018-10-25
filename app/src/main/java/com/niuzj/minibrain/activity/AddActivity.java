@@ -102,10 +102,12 @@ public class AddActivity extends BaseActivity implements View.OnClickListener {
                 urlBean.createTime = System.currentTimeMillis();
                 urlBean.updateTime = System.currentTimeMillis();
 
+                //保存该条数据
                 BoxStore boxStore = MineApplication.getInstance().getBoxStore();
                 Box<UrlBean> urlBeanBox = boxStore.boxFor(UrlBean.class);
                 urlBeanBox.put(urlBean);
 
+                //同时，类型列表中，如果存在该类型，则count加1，否则新建该类型
                 TypeBeanHelper.getInstance().addType(type);
 
                 Toast.makeText(this, getString(R.string.add_success), Toast.LENGTH_SHORT).show();
@@ -128,6 +130,9 @@ public class AddActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    /**
+     * 弹窗展示当前数据库中存在的类型列表
+     */
     private void showTypeListDialog() {
 
         BoxStore boxStore = MineApplication.getInstance().getBoxStore();

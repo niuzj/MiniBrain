@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:core_library_left_visiable="false"
-        app:core_library_right_title="@string/setting" />
+        app:core_library_right_title="@string/about_setting" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

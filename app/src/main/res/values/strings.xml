@@ -22,17 +22,22 @@
     <string name="add_success">添加成功</string>
     <string name="edit">编辑</string>
     <string name="edit_success">编辑成功</string>
-    <string name="setting">设置</string>
+    <string name="about_setting">关于/设置</string>
 
     <string name="default_open_type">默认打开链接方式：</string>
     <string name="default_open_inner">应用内打开</string>
     <string name="default_open_browser">系统默认浏览器</string>
     <string name="tip_before_open">每次打开前提示选择</string>
+    <string name="version_info">当前版本：%1$s</string>
+    <string name="permission_needed">所需权限：</string>
 
     <string name="performance_better_tip">跳转系统浏览器，获取更好体验？\n可在设置页面设置默认打开方式</string>
     <string name="type_change_tip">该记录的类型已变为%1$s，将从%2$s中删除</string>
     <string name="delete_type_tip">确定要删除%1$s类目下的%2$d条记录吗？</string>
 
     <string name="history_of_type">历史</string>
+
+    <!--所需权限-->
+    <string name="permission_internet">~连接网络</string>
 
 </resources>

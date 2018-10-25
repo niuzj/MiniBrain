@@ -12,7 +12,7 @@ import com.niuzj.corelibrary.base.BaseApplication;
 /**
  * 获取设备信息
  */
-public class DeviceUtils {
+public class DeviceUtil {
 
     private static String errorPlaceText = "";
 
@@ -99,7 +99,6 @@ public class DeviceUtils {
             deviceHeight = screenSize.getHeight();
         }
         return deviceHeight;
-
     }
 
 

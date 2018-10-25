@@ -268,7 +268,7 @@ public class UrlListActivity extends BaseActivity implements OnItemClickListener
                         break;
 
                     case 2:
-                        //删除
+                        //取消
                         break;
 
                 }

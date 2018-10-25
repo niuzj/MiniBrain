@@ -34,6 +34,7 @@ public class EditActivity extends BaseActivity {
     @BindView(R.id.title_bar)
     TitleBar mTitleBar;
 
+    //要编辑的对象
     UrlBean mUrlBean;
 
     @Override
@@ -65,11 +66,6 @@ public class EditActivity extends BaseActivity {
 
             }
         });
-
-        if (!TextUtils.isEmpty(mUrlBean.url)) {
-            etUrl.setFocusable(false);
-            etUrl.setFocusableInTouchMode(false);
-        }
 
     }
 

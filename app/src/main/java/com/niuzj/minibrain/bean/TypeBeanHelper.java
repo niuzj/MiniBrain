@@ -59,6 +59,11 @@ public class TypeBeanHelper {
         typeBeanBox.put(unique);
     }
 
+    /**
+     * 减少该类型下的数量
+     *
+     * @param type
+     */
     public void reduceType(String type) {
         BoxStore boxStore = MineApplication.getInstance().getBoxStore();
         Box<TypeBean> typeBeanBox = boxStore.boxFor(TypeBean.class);
@@ -70,40 +75,18 @@ public class TypeBeanHelper {
         typeBeanBox.put(unique);
     }
 
+    /**
+     * 删除该类型
+     *
+     * @param type
+     */
     public void deleteType(String type) {
         BoxStore boxStore = MineApplication.getInstance().getBoxStore();
         final Box<TypeBean> typeBeanBox = boxStore.boxFor(TypeBean.class);
         QueryBuilder<TypeBean> queryBuilder = typeBeanBox.query();
         Query<TypeBean> query = queryBuilder.equal(TypeBean_.type, type).build();
-        final DataSubscriptionList dataSubscriptionList = new DataSubscriptionList();
-        query.subscribe(dataSubscriptionList)
-                //.single()
-                .transform(new DataTransformer<List<TypeBean>, List<Long>>() {
-                    @Override
-                    public List<Long> transform(List<TypeBean> source) throws Exception {
-
-                        List<Long> ids = null;
-                        if (source != null && source.size() > 0) {
-                            ids = new ArrayList<>();
-                            for (int i = 0; i < source.size(); i++) {
-                                ids.add(source.get(i).id);
-                            }
-                        }
-
-                        return ids;
-                    }
-                })
-                .observer(new DataObserver<List<Long>>() {
-                    @Override
-                    public void onData(List<Long> data) {
-                        if (data != null && data.size() > 0) {
-                            typeBeanBox.removeByKeys(data);
-                        }
-                        dataSubscriptionList.cancel();
-                    }
-                });
-
-
+        TypeBean unique = query.findUnique();
+        typeBeanBox.remove(unique);
     }
 
 
