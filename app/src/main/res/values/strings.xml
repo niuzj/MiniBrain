@@ -34,8 +34,12 @@
     <string name="performance_better_tip">跳转系统浏览器，获取更好体验？\n可在设置页面设置默认打开方式</string>
     <string name="type_change_tip">该记录的类型已变为%1$s，将从%2$s中删除</string>
     <string name="delete_type_tip">确定要删除%1$s类目下的%2$d条记录吗？</string>
+    <string name="delete_bean_tip">确定要删除该条目吗？</string>
 
     <string name="history_of_type">历史</string>
+    <string name="history_of_none">空空如也</string>
+
+    <string name="save_current_page">保存当前页面</string>
 
     <!--所需权限-->
     <string name="permission_internet">~连接网络</string>

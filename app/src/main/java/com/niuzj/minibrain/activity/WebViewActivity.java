@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebBackForwardList;
 import android.webkit.WebChromeClient;
+import android.webkit.WebHistoryItem;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.niuzj.corelibrary.base.BaseActivity;
+import com.niuzj.corelibrary.views.TitleBar;
 import com.niuzj.minibrain.R;
 import com.niuzj.minibrain.bean.UrlBean;
 
@@ -27,6 +31,8 @@ public class WebViewActivity extends BaseActivity {
     WebView webview;
     @BindView(R.id.content_loading_progressbar)
     ContentLoadingProgressBar mContentLoadingProgressBar;
+    @BindView(R.id.title_bar)
+    TitleBar mTitleBar;
 
     private UrlBean mUrlBean;
 
@@ -59,19 +65,29 @@ public class WebViewActivity extends BaseActivity {
         } else {
             new WebViewHelper().initWebView(webview);
             webview.loadUrl(mUrlBean.url);
+            mTitleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
+                @Override
+                public void clickLeft() {
+                    finish();
+                }
+
+                @Override
+                public void clickRight() {
+                    WebBackForwardList webBackForwardList = webview.copyBackForwardList();
+                    WebHistoryItem currentItem = webBackForwardList.getCurrentItem();
+                    String url = currentItem.getUrl();
+                    UrlBean urlBean = new UrlBean();
+                    urlBean.url = url;
+                    Intent intent = new Intent(WebViewActivity.this, AddActivity.class);
+                    intent.putExtra("url_bean", urlBean);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (webview.canGoBack()) {
-                webview.goBack();
-                return true;
-            }
-        }
-
         return super.onKeyDown(keyCode, event);
     }
 

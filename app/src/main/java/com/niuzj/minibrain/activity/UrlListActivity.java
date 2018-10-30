@@ -100,7 +100,9 @@ public class UrlListActivity extends BaseActivity implements OnItemClickListener
             @Override
             public void clickRight() {
                 Intent intent = new Intent(UrlListActivity.this, AddActivity.class);
-                intent.putExtra("type_bean", mTypeBean);
+                UrlBean urlBean = new UrlBean();
+                urlBean.type = mTypeBean.getType();
+                intent.putExtra("url_bean", urlBean);
                 startActivity(intent);
             }
         });
@@ -250,20 +252,36 @@ public class UrlListActivity extends BaseActivity implements OnItemClickListener
 
                     case 1:
                         //删除
-                        Box<UrlBean> urlBeanBox = MineApplication.getInstance().getBoxStore().boxFor(UrlBean.class);
-                        urlBeanBox.remove(urlBean);
+                        new DefaultDialog.Builder()
+                                .content(getString(R.string.delete_bean_tip))
+                                .leftTitle(getString(R.string.cancel))
+                                .rightTitle(getString(R.string.confirm))
+                                .clickListener(new DefaultDialog.OnDialogClickListener() {
+                                    @Override
+                                    public void clickLeft() {
 
-                        //修改该类型数量
-                        TypeBeanHelper.getInstance().reduceType(urlBean.type);
+                                    }
 
-                        //从列表中删除
-                        mUrlBeanList.remove(urlBean);
+                                    @Override
+                                    public void clickRight() {
+                                        Box<UrlBean> urlBeanBox = MineApplication.getInstance().getBoxStore().boxFor(UrlBean.class);
+                                        urlBeanBox.remove(urlBean);
 
-                        if (mUrlBeanList.size() <= 0) {
-                            UrlListActivity.this.finish();
-                        } else {
-                            mUrlListAdapter.notifyDataSetChanged();
-                        }
+                                        //修改该类型数量
+                                        TypeBeanHelper.getInstance().reduceType(urlBean.type);
+
+                                        //从列表中删除
+                                        mUrlBeanList.remove(urlBean);
+
+                                        if (mUrlBeanList.size() <= 0) {
+                                            UrlListActivity.this.finish();
+                                        } else {
+                                            mUrlListAdapter.notifyDataSetChanged();
+                                        }
+                                    }
+                                })
+                                .build(UrlListActivity.this)
+                                .show();
 
                         break;
 

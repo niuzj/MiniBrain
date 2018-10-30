@@ -43,8 +43,8 @@ public class AddActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TypeBean typeBean = getIntent().getParcelableExtra("type_bean");
-        initView(typeBean);
+        UrlBean urlBean = getIntent().getParcelableExtra("url_bean");
+        initView(urlBean);
     }
 
     @Override
@@ -52,9 +52,12 @@ public class AddActivity extends BaseActivity implements View.OnClickListener {
         return R.layout.activity_add;
     }
 
-    private void initView(TypeBean typeBean) {
-        if (typeBean != null) {
-            etType.setText(typeBean.getType());
+    private void initView(UrlBean urlBean) {
+        if (urlBean != null) {
+            etType.setText(urlBean.type);
+            etTitle.setText(urlBean.title);
+            etContent.setText(urlBean.content);
+            etUrl.setText(urlBean.url);
         }
         mTitleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
@@ -141,15 +144,20 @@ public class AddActivity extends BaseActivity implements View.OnClickListener {
         Query<TypeBean> typeBeanQuery = queryBuilder.orderDesc(TypeBean_.updateTime).build();
         final String[] strings = typeBeanQuery.property(TypeBean_.type)
                 .findStrings();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setAdapter(new ArrayAdapter<String>(this, R.layout.adapter_list_dialog_item, 0, strings), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                etType.setText(strings[which]);
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
+        if (strings != null && strings.length > 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setAdapter(new ArrayAdapter<String>(this, R.layout.adapter_list_dialog_item, 0, strings), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    etType.setText(strings[which]);
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        } else {
+            Toast.makeText(this, getString(R.string.history_of_none), Toast.LENGTH_SHORT).show();
+        }
 
 
     }

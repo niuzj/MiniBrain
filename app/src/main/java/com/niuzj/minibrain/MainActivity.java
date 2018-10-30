@@ -168,9 +168,9 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, O
                         case 0:
                             //添加
                             Intent intent = new Intent(MainActivity.this, AddActivity.class);
-                            TypeBean type = new TypeBean();
-                            type.setType(typeBean.getType());
-                            intent.putExtra("type_bean", type);
+                            UrlBean urlBean = new UrlBean();
+                            urlBean.type = typeBean.getType();
+                            intent.putExtra("url_bean", urlBean);
                             startActivity(intent);
                             break;
 
