@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.niuzj.corelibrary.base.BaseActivity;
 import com.niuzj.corelibrary.views.DefaultDialog;
 import com.niuzj.corelibrary.views.TitleBar;
 import com.niuzj.minibrain.MineApplication;
@@ -21,7 +20,7 @@ import butterknife.OnClick;
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
 
-public class EditActivity extends BaseActivity {
+public class EditActivity extends MiniBaseActivity {
 
     @BindView(R.id.et_type)
     EditText etType;

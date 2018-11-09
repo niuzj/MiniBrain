@@ -11,12 +11,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.niuzj.corelibrary.base.BaseActivity;
-import com.niuzj.corelibrary.utils.JsonUtil;
 import com.niuzj.corelibrary.utils.SpUtil;
 import com.niuzj.corelibrary.views.DefaultDialog;
 import com.niuzj.corelibrary.views.LoadingDialog;
@@ -26,7 +23,6 @@ import com.niuzj.minibrain.R;
 import com.niuzj.minibrain.adapter.UrlListAdapter;
 import com.niuzj.minibrain.bean.TypeBean;
 import com.niuzj.minibrain.bean.TypeBeanHelper;
-import com.niuzj.minibrain.bean.TypeBean_;
 import com.niuzj.minibrain.bean.UrlBean;
 import com.niuzj.minibrain.bean.UrlBeanHelper;
 import com.niuzj.minibrain.bean.UrlBean_;
@@ -38,7 +34,6 @@ import com.niuzj.minibrain.views.UrlAdapterItemDecoration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -51,7 +46,7 @@ import io.objectbox.reactive.DataObserver;
 import io.objectbox.reactive.DataSubscriptionList;
 import io.objectbox.reactive.ErrorObserver;
 
-public class UrlListActivity extends BaseActivity implements OnItemClickListener, OnItemLongClickListener {
+public class UrlListActivity extends MiniBaseActivity implements OnItemClickListener, OnItemLongClickListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;

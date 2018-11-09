@@ -5,19 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebBackForwardList;
 import android.webkit.WebChromeClient;
 import android.webkit.WebHistoryItem;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.niuzj.corelibrary.base.BaseActivity;
 import com.niuzj.corelibrary.views.TitleBar;
 import com.niuzj.minibrain.R;
 import com.niuzj.minibrain.bean.UrlBean;
@@ -25,7 +22,7 @@ import com.niuzj.minibrain.bean.UrlBean;
 import butterknife.BindView;
 
 
-public class WebViewActivity extends BaseActivity {
+public class WebViewActivity extends MiniBaseActivity {
 
     @BindView(R.id.webview)
     WebView webview;

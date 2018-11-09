@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.niuzj.corelibrary.base.BaseActivity;
 import com.niuzj.corelibrary.views.TitleBar;
 import com.niuzj.minibrain.MineApplication;
 import com.niuzj.minibrain.R;
@@ -27,7 +26,7 @@ import io.objectbox.BoxStore;
 import io.objectbox.query.Query;
 import io.objectbox.query.QueryBuilder;
 
-public class AddActivity extends BaseActivity implements View.OnClickListener {
+public class AddActivity extends MiniBaseActivity implements View.OnClickListener {
 
     @BindView(R.id.et_type)
     EditText etType;

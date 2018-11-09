@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.niuzj.corelibrary.base.BaseActivity;
 import com.niuzj.corelibrary.utils.AppUtil;
 import com.niuzj.corelibrary.utils.SpUtil;
 import com.niuzj.corelibrary.views.TitleBar;
@@ -23,7 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class SettingActivity extends BaseActivity {
+public class SettingActivity extends MiniBaseActivity {
 
     @BindView(R.id.title_bar)
     TitleBar mTitleBar;
