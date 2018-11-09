@@ -4,7 +4,7 @@ ext {
             release_key_alias     : "minibrain",
             release_key_password  : "minibrain",
             release_store_password: "minibrain",
-            release_store_file    : "./keystore/release.jks"
+            release_store_file    : "D:\\MyInfo\\release.jks"
     ]
 
     versions = [
